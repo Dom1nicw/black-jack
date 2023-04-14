@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+    <title>Black Jack</title>
+</head>
+<body>
+    <h1>Black Jack</h1>
+    <p>Play black jack against the browser</p>
+    <div>
+    <button class="startgame">Start game</button>
+    <button class="restartgame hidden">Restart</button>
+    </div>
+    <p class="starttext restartable hidden">The deck has been shuffled.</p>
+    <button class="restartable dealcards hidden">Deal cards</button>
+    <div class="sticktwistsection hidden restartable">
+        <p class="dealttext">You are dealt the </p>
+        <button class="stickbutton">Stick</button><button class="twistbutton">Twist</button>
+        <button class="aceValue hidden restartable">Change ace value</button>
+        <div class="stickortwisttext"></div>
+    </div>
+    <div class="computerplays"></div>
+    <div class="results"></div>
+</body>
+</html>
