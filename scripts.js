@@ -1,8 +1,8 @@
 const suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
-const cardnames = ['two', 'three', 'four', 'five', 'six', 'seven',
-    'eight', 'nine', 'ten', 'Ace', 'Jack', 'Queen', 'King']
+const cardnames = ['Ace', 'two', 'three', 'four', 'five', 'six', 'seven',
+    'eight', 'nine', 'ten', 'Jack', 'Queen', 'King']
 let fullDeck = []
-let playerHand = [{cardName: 'Ace of Spades', cardScore: 11}]
+let playerHand = []
 let computerHand = []
 let playerScore = 0
 let computerScore = 0
@@ -13,7 +13,7 @@ function makeDeck(array) {
         for (j = 0; j < cardnames.length; j++) {
             let value = 0
             if (j < 10) {
-                value = j + 2
+                value = j + 1
             } else {
                 value = 10
             }
@@ -40,10 +40,10 @@ function calcScore(array) {
     })
     if (numberOfAces(array) === 0) {
         return score
-    } else if (numberOfAces(array) > 0 && score < 22) {
+    } else if (numberOfAces(array) > 0 && score < 12) {
+        return score + 10
+    } else if (numberOfAces(array) > 0 && score > 11) {
         return score
-    } else if (numberOfAces(array) > 0 && score > 21) {
-        return score - 10
     }
 }
 
@@ -75,8 +75,8 @@ startButton.addEventListener('click', function() {
 restartButton.addEventListener('click', function() {
     fullDeck = []
     // set player hand to this when working on aces
-    playerHand = [{cardName: 'Ace of Spades', cardScore: 11}]
-    // playerHand = []
+    // playerHand = [{cardName: 'Ace of Spades', cardScore: 1}]
+    playerHand = []
     computerHand = []
     playerScore = 0
     computerScore = 0
@@ -95,7 +95,7 @@ restartButton.addEventListener('click', function() {
 function dealTheCards(e) {
     dealCard(playerHand)
     dealCard(computerHand)
-    // dealCard(playerHand)
+    dealCard(playerHand)
     dealCard(computerHand)
     // console.log(playerHand)
     playerScore = calcScore(playerHand)
