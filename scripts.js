@@ -121,7 +121,6 @@ function numberOfAces (cards) {
     let k = 0
     cards.forEach(function(card){
         if (card.cardName.includes('Ace')) {
-            aceButton.classList.remove('hidden')
             k++
         }
     })
